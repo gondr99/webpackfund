@@ -71,6 +71,52 @@ nav > ul > li:hover {
 #fund {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     padding-top:30px;
+}
+
+/* 수업이후 치기 시작 */
+.section-title {
+    font-size:35px;
+    margin-bottom:40px;
+}
+
+.top-fund-list{
+    width:100%;
+    padding:0 10%;
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: minmax(300px, auto);
+    grid-gap:20px;
+}
+
+.fund-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.2);
+    padding:15px;
+}
+
+.fund {
+    width:100%;
+    height:100%;
+    display:flex;
+    flex-direction: column;
+}
+
+.fund > .graph-container {
+    flex:2;
+    padding-bottom:10px;
+}
+
+.fund > .graph-container > canvas {
+    width:100%;
+    height:100%;
+}
+
+.fund > .info-box {
+    flex:1;
 }

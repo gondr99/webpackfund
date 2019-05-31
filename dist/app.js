@@ -86,6 +86,18 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./App/Fund.js":
+/*!*********************!*\
+  !*** ./App/Fund.js ***!
+  \*********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Fund; });\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);\n\r\n\r\nclass Fund {\r\n    constructor(el, data){\r\n        this.el = el; //엘레멘트 넣어주고\r\n        let template = this.makeTemplate(data);\r\n        el.append(template);\r\n\r\n        this.canvas = el.find(\"canvas\");\r\n        this.title = el.find(\".fund-title\");\r\n        this.desc = el.find(\".description\");\r\n\r\n        console.log(this.canvas, this.title, this.desc);\r\n    }\r\n\r\n    makeTemplate(data) {\r\n        return `<div class=\"fund\">\r\n                <div class=\"graph-container\">\r\n                    <canvas></canvas>\r\n                </div>\r\n                <div class=\"info-box\">\r\n                    <h1 class=\"fund-title\">${data.title}</h1>\r\n                    <p class=\"description\">${data.description}</p>\r\n                </div>\r\n            </div>`;\r\n    }\r\n}\n\n//# sourceURL=webpack:///./App/Fund.js?");
+
+/***/ }),
+
 /***/ "./App/MainApp.js":
 /*!************************!*\
   !*** ./App/MainApp.js ***!
@@ -94,7 +106,7 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return MainApp; });\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);\n\r\n\r\nclass MainApp {\r\n    constructor(){\r\n        this.sectionList = jquery__WEBPACK_IMPORTED_MODULE_0___default()(\"section\");\r\n        this.eventHandle();\r\n        this.resize();\r\n    }\r\n\r\n    eventHandle(){\r\n        jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).on(\"resize\", e=> this.resize() );\r\n    }\r\n\r\n    resize() {\r\n        this.sectionList.height(window.innerHeight);\r\n    }\r\n}\n\n//# sourceURL=webpack:///./App/MainApp.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return MainApp; });\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _Fund__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Fund */ \"./App/Fund.js\");\n\r\n\r\n\r\nclass MainApp {\r\n    constructor(){\r\n        this.sectionList = jquery__WEBPACK_IMPORTED_MODULE_0___default()(\"section\");\r\n        this.eventHandle();\r\n        this.resize();\r\n\r\n        this.fundDataList = [\r\n            {title:\"시험펀드1\", description:\"펀드에 대한 설명 1\"},\r\n            {title:\"시험펀드2\", description:\"펀드에 대한 설명 2\"},\r\n            {title:\"시험펀드3\", description:\"펀드에 대한 설명 3\"},\r\n            {title:\"시험펀드4\", description:\"펀드에 대한 설명 4\"}\r\n        ];\r\n\r\n        this.topFund = jquery__WEBPACK_IMPORTED_MODULE_0___default()(\".top-fund-list\");\r\n        this.topFundList = [];\r\n        this.fundDataList.forEach(x => {\r\n            let fundBox = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`<div class=\"fund-box\"></div>`).appendTo(this.topFund);\r\n            \r\n            this.topFundList.push(new _Fund__WEBPACK_IMPORTED_MODULE_1__[\"default\"](fundBox, x));\r\n        });\r\n    }\r\n\r\n    eventHandle(){\r\n        jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).on(\"resize\", e=> this.resize() );\r\n    }\r\n\r\n    resize() {\r\n        this.sectionList.height(window.innerHeight);\r\n    }\r\n}\n\n//# sourceURL=webpack:///./App/MainApp.js?");
 
 /***/ }),
 
